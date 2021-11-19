@@ -1,6 +1,7 @@
 package domain;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -21,7 +22,7 @@ public class LottoGenerator {
 
     private static List<Integer> lottoList=new ArrayList<Integer>();
 
-
+    // 1~45 초기화
     static {
         lottoList=lotto();
     }
@@ -36,10 +37,19 @@ public class LottoGenerator {
             resultLotto.add(lottoList.get(i));
 
         }
+        shuffleLotto(resultLotto);
         result=sixNumbers(resultLotto);
+
         return result;
     }
+    // - 로또 번호 섞기
+    public static void shuffleLotto(List<Integer> lottoList){
 
+        Collections.shuffle(lottoList);
+
+    }
+
+    // - 6개씩 뽑기
     public static List<Integer> sixNumbers(List<Integer> lottoList){
         List<Integer> six=new ArrayList<>();
         for(int i=0; i<6; i++){
