@@ -27,6 +27,10 @@ public class LottoGenerator {
         lottoList=lotto();
     }
 
+    public static Lotto generate(){
+        return new Lotto(lottoOneLine());
+    }
+
     // [] 로또 한줄씩 출력
     public  static List<Integer>lottoOneLine(){
 

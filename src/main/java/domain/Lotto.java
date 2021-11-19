@@ -5,12 +5,15 @@ import java.util.List;
 
 public class Lotto {
 
+    /**
+     * 로또 한줄씩 관리
+     */
 
     private List<Integer> lottoList=new ArrayList<>();
 
 
-    public Lotto(){
-        this.lottoList=new LottoGenerator().lottoOneLine();
+    public Lotto(List<Integer> lottoOneLine){
+        this.lottoList=lottoOneLine;
     }
 
 
