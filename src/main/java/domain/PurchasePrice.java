@@ -23,6 +23,9 @@ public class PurchasePrice {
         this.myMoney=totalcheckError(input); // 모든 예외 처리하는 테스트
     }
 
+    public static int getMyMoney() {
+        return myMoney;
+    }
 
     public static int totalcheckError(final String input){
         int monye;
@@ -70,7 +73,7 @@ public class PurchasePrice {
     }
 
     // [] 구입 금액으로 로또 개수 판별
-    public static int myMoney(){
+    public static int myMoneyCount(){
         return myMoney/1000;
     }
 }

@@ -53,7 +53,7 @@ public class PurchaseTest {
     @DisplayName("로또 구입 개수")
     @Test
     void lottoGetCount(){
-        int n=new PurchasePrice("2000").myMoney();
+        int n=new PurchasePrice("2000").getMyMoney();
         Assertions.assertEquals(2,n);
     }
 }
