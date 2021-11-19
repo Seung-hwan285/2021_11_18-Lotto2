@@ -28,9 +28,17 @@ public class WinnerTest {
 
     @DisplayName("당첨번호 null")
     @ParameterizedTest
-    @NullSource
+    @NullAndEmptySource
     void numberNull(String input){
         assertThatThrownBy(()->new WinnerGenerator(input))
-                .hasMessage("null");
+                .hasMessage("당첨 번호를 입력하지 않으셨습니다.");
+    }
+
+    @DisplayName("숫자 6개입력")
+    @ParameterizedTest
+    @ValueSource(strings = {"1,2,3,4,5"})
+    void inputLimit(String input){
+        assertThatThrownBy(()->new WinnerGenerator(input))
+                .hasMessage("숫자 6개 입력해주세요");
     }
 }
