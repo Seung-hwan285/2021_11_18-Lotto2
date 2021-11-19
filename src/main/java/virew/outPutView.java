@@ -43,7 +43,7 @@ public class outPutView {
 
     }
     public static void TotalLottoPrint(Lottos lottos){
-        List<Lotto> lottosLine=lottos.getLottos();
+        List<Lotto> lottosLine=lottos.getLottosList();
 
         for(Lotto lotto: lottosLine){
             printLottoNumbers(lotto);

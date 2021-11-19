@@ -10,4 +10,8 @@ public class InputView {
         System.out.println("구입 금액을 입력하세요");
         return sc.nextLine();
     }
+    public static String userInput(){
+        System.out.println("당첨 번호를 입력해주세요");
+        return sc.nextLine();
+    }
 }
