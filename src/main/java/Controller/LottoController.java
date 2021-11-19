@@ -8,5 +8,9 @@ public class LottoController {
     public void run(){
         outPutView.MymoneyPrint();
         outPutView.countLotto();
+
+        outPutView.oneLine();
     }
+
+
 }

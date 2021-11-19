@@ -33,7 +33,14 @@ public class LottoTest {
         }
         return test;
     }
-
+    private List<Integer>makeTestList2(){
+        List<Integer> test=new ArrayList<>();
+        for(int i=1; i<=6; i++)
+        {
+            test.add(i);
+        }
+        return test;
+    }
 
     @DisplayName("로또 초기화 1~45")
     @Test
@@ -42,5 +49,12 @@ public class LottoTest {
         List<Integer> lottoList=new LottoGenerator().lotto();
         List<Integer> test=makeTestList();
         Assertions.assertEquals(test,lottoList);
+    }
+
+    @DisplayName("로또 6개 값")
+    @Test
+    void sixNumberTest(){
+        List<Integer> test=makeTestList2();
+        Assertions.assertEquals(test,new LottoGenerator().lottoOneLine());
     }
 }

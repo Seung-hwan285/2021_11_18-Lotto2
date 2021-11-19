@@ -1,6 +1,7 @@
 package domain;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class LottoGenerator {
@@ -9,6 +10,9 @@ public class LottoGenerator {
     /**
      *   [] 구입한 로또 개수만큼 lotto 객체 생성
      *      - 1~45로 로또 초기화
+     *   [] 로또 한줄씩 출력
+     *      - 6개씩 뽑기
+     *      - 로또 번호 섞기
      */
 
     private static final  int MIN=1;
@@ -17,6 +21,35 @@ public class LottoGenerator {
 
     private static List<Integer> lottoList=new ArrayList<Integer>();
 
+
+    static {
+        lottoList=lotto();
+    }
+
+    // [] 로또 한줄씩 출력
+    public  static List<Integer>lottoOneLine(){
+
+        List<Integer> resultLotto=new ArrayList<>();
+
+        List<Integer> result=new ArrayList<>();
+        for(int i=0; i<lottoList.size(); i++){
+            resultLotto.add(lottoList.get(i));
+
+        }
+        result=sixNumbers(resultLotto);
+        return result;
+    }
+
+    public static List<Integer> sixNumbers(List<Integer> lottoList){
+        List<Integer> six=new ArrayList<>();
+        for(int i=0; i<6; i++){
+            six.add(lottoList.get(i));
+        }
+        return six;
+
+    }
+
+    // - 1~45로 로또 초기화
     public static List<Integer> lotto(){
 
         for(int i=MIN; i<= MAX; i++){
