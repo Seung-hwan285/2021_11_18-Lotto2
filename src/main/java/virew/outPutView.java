@@ -1,5 +1,6 @@
 package virew;
 
+import domain.Lotto;
 import domain.LottoGenerator;
 import domain.PurchasePrice;
 
@@ -24,5 +25,9 @@ public class outPutView {
 
     }
 
+
+    public static void LottoPrint(){
+        System.out.println("Lotto 클래스 출력"+new Lotto().getLottoList());
+    }
 }
 

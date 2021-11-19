@@ -10,7 +10,7 @@ public class LottoController {
         outPutView.MymoneyPrint();
         outPutView.countLotto();
 
-
+        outPutView.LottoPrint();
 
     }
 
