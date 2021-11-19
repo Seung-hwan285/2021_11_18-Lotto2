@@ -47,4 +47,15 @@ public class WinnerTest {
 
     }
 
+
+    @DisplayName("숫자 6개 입력 테스트")
+    @ParameterizedTest
+    @ValueSource(strings = {"1,2,3,4,5","1,2,3"})
+    void numberLengthTest(String input){
+        assertThatThrownBy(()->new WinnerGenerator(input))
+                .hasMessage("숫자 6개 입력해주세요");
+    }
+
+
+
 }
