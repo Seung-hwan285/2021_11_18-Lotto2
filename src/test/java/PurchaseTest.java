@@ -49,4 +49,11 @@ public class PurchaseTest {
      assertThatThrownBy(()->new PurchasePrice(input))
      .hasMessage("null");
     }
+
+    @DisplayName("로또 구입 개수")
+    @Test
+    void lottoGetCount(){
+        int n=new PurchasePrice("2000").myMoney();
+        Assertions.assertEquals(2,n);
+    }
 }

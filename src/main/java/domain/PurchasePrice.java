@@ -8,8 +8,12 @@ public class PurchasePrice {
      *      - 숫자가 아닌  다른 타입
      *      - 1000보다 작을때 에러
      *      - 빈값 에러
+     *
      *  [] 모든 예외 처리하는 테스트 -> totalcheckError()
+     *
      *  [] 문자열 -> 정수
+     *
+     *  [] 구입 금액으로 로또 개수 판별
      *
      */
     private static int myMoney;
@@ -21,11 +25,12 @@ public class PurchasePrice {
 
 
     public static int totalcheckError(final String input){
+        int monye;
         checkLimit(input);
-        myMoney=checkOtherType(input);
-        myMoney=checkLimit(input);
+        monye=checkOtherType(input);
+        monye=checkLimit(input);
 
-        return myMoney;
+        return monye;
     }
 
     // - 빈값 에러
@@ -62,5 +67,10 @@ public class PurchasePrice {
             throw  new IllegalArgumentException("숫자만 입력해주세요");
         }
 
+    }
+
+    // [] 구입 금액으로 로또 개수 판별
+    public static int myMoney(){
+        return myMoney/1000;
     }
 }
