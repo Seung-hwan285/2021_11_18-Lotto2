@@ -33,10 +33,12 @@ public class LottoGenerator {
         List<Integer> resultLotto=new ArrayList<>();
 
         List<Integer> result=new ArrayList<>();
-        for(int i=0; i<lottoList.size(); i++){
-            resultLotto.add(lottoList.get(i));
 
-        }
+
+            for (int i = 0; i < lottoList.size(); i++) {
+                resultLotto.add(lottoList.get(i));
+            }
+
         shuffleLotto(resultLotto);
         result=sixNumbers(resultLotto);
 

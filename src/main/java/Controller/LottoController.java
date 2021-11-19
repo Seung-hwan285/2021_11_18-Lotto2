@@ -1,5 +1,6 @@
 package Controller;
 
+import domain.PurchasePrice;
 import virew.outPutView;
 
 public class LottoController {
@@ -9,7 +10,8 @@ public class LottoController {
         outPutView.MymoneyPrint();
         outPutView.countLotto();
 
-        outPutView.oneLine();
+
+
     }
 
 

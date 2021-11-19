@@ -19,7 +19,6 @@ public class PurchasePrice {
     private static int myMoney;
 
     public PurchasePrice(final String input){
-
         this.myMoney=totalcheckError(input); // 모든 예외 처리하는 테스트
     }
 
