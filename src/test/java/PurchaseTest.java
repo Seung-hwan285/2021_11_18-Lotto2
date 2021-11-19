@@ -19,6 +19,9 @@ import java.util.*;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.in;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+
 public class PurchaseTest {
 
 
@@ -26,10 +29,24 @@ public class PurchaseTest {
     @ParameterizedTest
     @ValueSource(strings = {"d","#"})
     void TyepTest(String input){
-        AssertionsForClassTypes.assertThatThrownBy(()-> new PurchasePrice(input))
+        assertThatThrownBy(()-> new PurchasePrice(input))
                 .hasMessage("숫자만 입력해주세요");
+    }
 
+    @DisplayName("1000원제한")
+    @ParameterizedTest
+    @ValueSource(strings = {"900"})
+    void limitTest(String input)
+    {
+        assertThatThrownBy(()->new PurchasePrice(input))
+                .hasMessage("1000원 이상만 지불하세요");
+    }
 
-
+    @DisplayName("입력값 안들어올때 ")
+    @ParameterizedTest
+    @NullSource
+    void emptyNullTest(String input){
+     assertThatThrownBy(()->new PurchasePrice(input))
+     .hasMessage("null");
     }
 }

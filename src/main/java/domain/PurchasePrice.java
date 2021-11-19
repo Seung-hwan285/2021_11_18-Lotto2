@@ -21,25 +21,46 @@ public class PurchasePrice {
 
 
     public static int totalcheckError(final String input){
-
+        checkLimit(input);
         myMoney=checkOtherType(input);
+        myMoney=checkLimit(input);
 
         return myMoney;
     }
 
+    // - 빈값 에러
+    public static void checkIsEmpty(final String input){
+        if(input.isEmpty() || null==input){
+            throw new IllegalArgumentException("null");
+        }
 
+    }
+
+
+    // - 1000보다 작을때 에러
+    public static int checkLimit(final String input){
+        int num;
+
+        num=changeInt(input);
+
+        if(num < 1000){
+            throw new IllegalArgumentException("1000원 이상만 지불하세요");
+        }
+        return num;
+    }
+
+    // [] 문자열 -> 정수
     public static int changeInt(final String input){
         return Integer.parseInt(input);
     }
 
     // - 숫자가 아닌  다른 타입
     public static int checkOtherType(final String input){
-        int num;
         try{
-             num =changeInt(input);
+            return changeInt(input);
         }catch(IllegalArgumentException e){
             throw  new IllegalArgumentException("숫자만 입력해주세요");
         }
-        return num;
+
     }
 }
