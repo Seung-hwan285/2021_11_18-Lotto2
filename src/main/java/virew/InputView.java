@@ -14,4 +14,9 @@ public class InputView {
         System.out.println("당첨 번호를 입력해주세요");
         return sc.nextLine();
     }
+
+    public static String bonusBall(){
+        System.out.println("보너스 볼 입력해주세요");
+        return sc.nextLine();
+    }
 }

@@ -25,7 +25,7 @@ public class WinnerGenerator {
 
     private static List<Integer>winngNumbers=new ArrayList<>();
 
-    public WinnerGenerator(String input){
+    public WinnerGenerator(final String input){
 
         winngNumbers=totalCheckException(input);
     }
@@ -37,7 +37,7 @@ public class WinnerGenerator {
     }
 
     // [] 예외처리 한번에 처리하는 메서드로 분리
-    public static List<Integer> totalCheckException(String input){
+    public static List<Integer> totalCheckException(final String input){
         checkNull(input);
         checkSeparator(input);
 
