@@ -19,7 +19,10 @@ public class WinnerGenerator {
      *      - 중복 예외
      *
      *   [] 예외처리 한번에 처리하는 메서드로 분리
-     *
+     *   [] null,","구분자 예외 메소드 분리
+     *   [] otherType , LengthLimit 예외 메소드 분리
+     *   [] spliteNumber<String> 메소드 분리
+     *   *
 
      */
 
@@ -36,15 +39,32 @@ public class WinnerGenerator {
         return winngNumbers;
     }
 
-    // [] 예외처리 한번에 처리하는 메서드로 분리
-    public static List<Integer> totalCheckException(final String input){
+    // [] null,","구분자 예외 메소드 분리
+    public static void checkNullAndSeparator(final String input){
         checkNull(input);
         checkSeparator(input);
+    }
 
-
-        List<String> splitNumber=changeSplit(input);
+    // [] otherType , LengthLimit 예외 메소드 분리
+    public static void checkSixLimitAndOtherType(final List<String> splitNumber){
         checkOhtherType(splitNumber);
         checkLengthSix(splitNumber);
+    }
+
+    // [] spliteNumber<String> 메소드 분리
+    public static List<String> changeSplitNumber(final String input){
+        List<String> splitNumber=changeSplit(input);
+        return splitNumber;
+    }
+
+
+    // [] 예외처리 한번에 처리하는 메서드로 분리
+    public static List<Integer> totalCheckException(final String input){
+
+        checkNullAndSeparator(input);
+
+        List<String> splitNumber=changeSplitNumber(input);
+        checkSixLimitAndOtherType(splitNumber);
 
         // 문자열 리스트 -> 정수형 리스트로 변경
         List<Integer> winngNumbers=splitNumber.stream()
