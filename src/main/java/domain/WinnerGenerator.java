@@ -18,6 +18,8 @@ public class WinnerGenerator {
      *      - 1~45숫자 예외
      *      - 중복 예외
      *
+     *   [] 예외처리 한번에 처리하는 메서드로 분리
+     *
 
      */
 
@@ -25,25 +27,35 @@ public class WinnerGenerator {
 
     public WinnerGenerator(String input){
 
+        winngNumbers=totalCheckException(input);
+    }
+
+
+
+    public static List<Integer> getWinngNumbers() {
+        return winngNumbers;
+    }
+
+    // [] 예외처리 한번에 처리하는 메서드로 분리
+    public static List<Integer> totalCheckException(String input){
         checkNull(input);
         checkSeparator(input);
+
 
         List<String> splitNumber=changeSplit(input);
         checkOhtherType(splitNumber);
         checkLengthSix(splitNumber);
-
 
         // 문자열 리스트 -> 정수형 리스트로 변경
         List<Integer> winngNumbers=splitNumber.stream()
                 .map(Integer::new)
                 .collect(Collectors.toList());
 
-
         numbersLimit(winngNumbers);
         isDuplicate(winngNumbers);
 
+        return winngNumbers;
     }
-
 
     // - 중복 예외
     public static void isDuplicate(List<Integer> winngNumbers){

@@ -15,7 +15,11 @@ public class Application {
 
         lottoController.run();
 
+        // 모든 로또 출력
         Lottos lottos=new Lottos(lottoCount);
         outPutView.TotalLottoPrint(lottos);
+
+        // 당첨번호 입력
+        outPutView.WinnerPrint(new InputView().userInput());
     }
 }

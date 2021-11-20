@@ -1,10 +1,7 @@
 package virew;
 
 import com.sun.source.tree.LiteralTree;
-import domain.Lotto;
-import domain.LottoGenerator;
-import domain.Lottos;
-import domain.PurchasePrice;
+import domain.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,11 +9,19 @@ import java.util.stream.Collectors;
 
 public class outPutView {
 
+    /**
+     *    [] 모든 로또 출력
+     *    [] 로또 한줄씩 출력
+     *    [] 당첨번호 출력
+     */
+
     static InputView inputView;
 
    static String money=inputView.moneyInput();
 
    static int count =new PurchasePrice(money).myMoneyCount();
+
+
     public static void MymoneyPrint(){
 
         System.out.println(new PurchasePrice(money).getMyMoney()+"원 입니다.");
@@ -29,6 +34,8 @@ public class outPutView {
 
     }
 
+
+    // [] 로또 한줄씩 출력
     private static void printLottoNumbers(Lotto lotto){
         System.out.println("로또생성");
 
@@ -42,12 +49,18 @@ public class outPutView {
 
 
     }
+    // [] 모든 로또 출력
     public static void TotalLottoPrint(Lottos lottos){
         List<Lotto> lottosLine=lottos.getLottosList();
 
         for(Lotto lotto: lottosLine){
             printLottoNumbers(lotto);
         }
+    }
+
+     // [] 당첨번호 출력
+    public static void WinnerPrint(String input){
+        System.out.println(new WinnerGenerator(input).getWinngNumbers());
     }
 }
 
