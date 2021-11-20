@@ -19,7 +19,17 @@ public class BounusTest {
     @ParameterizedTest
     @ValueSource(strings = {"a,~,!"})
     void otherTypeTest(String input){
-        assertThatThrownBy(()->new BounsBall(input).checkOtherType(input))
+        assertThatThrownBy(()->new BounsBall(input))
                 .hasMessage("숫자가 아닌 다른 타입입니다.");
     }
+
+    @DisplayName("1~45")
+    @ParameterizedTest
+    @ValueSource(strings = {"0","46"})
+    void numberLimitTest(String input){
+        assertThatThrownBy(() -> new BounsBall(input))
+                .hasMessage("1~45숫자만 입력해주세요");
+    }
+
+
 }
