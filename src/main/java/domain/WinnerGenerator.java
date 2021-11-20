@@ -2,6 +2,7 @@ package domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class WinnerGenerator {
 
@@ -11,8 +12,13 @@ public class WinnerGenerator {
      *      - null,isEmpty 예외
      *      - 구분자 분리 ","
      *      - 숫자 6개 예외
+     *      - 숫자가 아닌 다른 타입
+     *      - 1~45숫자 예외
+     *
 
      */
+
+    private static List<Integer>winngNumbers=new ArrayList<>();
 
     public WinnerGenerator(String input){
 
@@ -20,8 +26,29 @@ public class WinnerGenerator {
         checkSeparator(input);
 
         List<String> splitNumber=changeSplit(input);
-
+        checkOhtherType(splitNumber);
         checkLengthSix(splitNumber);
+
+
+        // 문자열 리스트 -> 정수형 리스트로 변경
+        List<Integer> winngNumbers=splitNumber.stream()
+                .map(Integer::new)
+                .collect(Collectors.toList());
+
+
+        numbersLimit(winngNumbers);
+
+    }
+
+    // - 1~45숫자 예외
+    public static void numbersLimit(List<Integer>splitNumber){
+
+        for(int num: splitNumber){
+            if(num < 1 || num >45){
+                throw new IllegalArgumentException("1~45 만 입력해주세요");
+            }
+        }
+
     }
 
 
@@ -37,6 +64,18 @@ public class WinnerGenerator {
 
     }
 
+    // - 숫자가 아닌 다른 타입
+    public static void checkOhtherType(List<String> splitNumber){
+
+        try {
+            splitNumber.stream()
+                    .map(Integer::new)
+                    .collect(Collectors.toList());
+        }catch(IllegalArgumentException e){
+            throw new IllegalArgumentException("숫자가 아닌 다른 타입입니다.");
+        }
+
+    }
 
     // 숫자 6개 예외
     public static void checkLengthSix(List<String> inputSplitLitst){

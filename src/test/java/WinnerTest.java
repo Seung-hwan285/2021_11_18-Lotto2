@@ -54,8 +54,25 @@ public class WinnerTest {
     void numberLengthTest(String input){
         assertThatThrownBy(()->new WinnerGenerator(input))
                 .hasMessage("숫자 6개 입력해주세요");
+
+        
+    }
+    @DisplayName("숫자가 아닌 다른 타입")
+    @ParameterizedTest
+    @ValueSource(strings = {"a,b","*,1"})
+    void otherTypeTest(String input){
+        assertThatThrownBy(()->new WinnerGenerator(input))
+                .hasMessage("숫자가 아닌 다른 타입입니다.");
     }
 
+
+    @DisplayName("숫자 1~45만 입력")
+    @ParameterizedTest
+    @ValueSource(strings = {"0,46,2,3,4,5"})
+    void numbersLimit(String input){
+        assertThatThrownBy(()->new WinnerGenerator(input))
+                .hasMessage("1~45 만 입력해주세요");
+    }
 
 
 }
