@@ -12,13 +12,14 @@ public class BounsBall {
 
     private static int bounuNum;
     public BounsBall(final String input){
-
         bounuNum= checkOtherType(input);
         checkNumberLimit(bounuNum);
     }
 
 
-
+    public static int getBounuNum() {
+        return bounuNum;
+    }
 
     // - 숫자가 아닌 다른 타입
     public static int checkOtherType(final String input){

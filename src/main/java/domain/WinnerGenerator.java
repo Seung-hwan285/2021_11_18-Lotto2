@@ -23,6 +23,7 @@ public class WinnerGenerator {
      *   [] otherType , LengthLimit 예외 메소드 분리
      *   [] spliteNumber<String> 메소드 분리
      *   [] 문자열 list -> Integer List 메소드 분리
+     *   [] 보너스볼 추가
      *   *
 
      */
@@ -32,6 +33,13 @@ public class WinnerGenerator {
     public WinnerGenerator(final String input){
 
         winngNumbers=totalCheckException(input);
+    }
+
+    // [] 보너스볼 추가
+    public static List<Integer> bounusBall(final int bouns){
+        winngNumbers.add(bouns);
+
+        return winngNumbers;
     }
 
 
