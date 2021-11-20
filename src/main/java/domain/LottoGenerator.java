@@ -7,7 +7,6 @@ import java.util.List;
 
 public class LottoGenerator {
 
-
     /**
      *   [] 구입한 로또 개수만큼 lotto 객체 생성
      *      - 1~45로 로또 초기화
@@ -27,10 +26,6 @@ public class LottoGenerator {
         lottoList=lotto();
     }
 
-    public static Lotto generate(){
-        return new Lotto(lottoOneLine());
-    }
-
     // [] 로또 한줄씩 출력
     public  static List<Integer>lottoOneLine(){
 
@@ -39,9 +34,9 @@ public class LottoGenerator {
         List<Integer> result=new ArrayList<>();
 
 
-            for (int i = 0; i < lottoList.size(); i++) {
-                resultLotto.add(lottoList.get(i));
-            }
+        for (int i = 0; i < lottoList.size(); i++) {
+            resultLotto.add(lottoList.get(i));
+        }
 
         shuffleLotto(resultLotto);
         result=sixNumbers(resultLotto);
@@ -77,5 +72,9 @@ public class LottoGenerator {
 
     public static List<Integer> getLottoList() {
         return lottoList;
+    }
+
+    public static Lotto generate() {
+        return new Lotto(lottoOneLine());
     }
 }

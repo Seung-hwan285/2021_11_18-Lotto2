@@ -13,6 +13,7 @@ public class Lottos {
 
 
     public Lottos(final int count){
+
         for(int i=0; i<count; i++){
             lottosList.add(LottoGenerator.generate());
         }

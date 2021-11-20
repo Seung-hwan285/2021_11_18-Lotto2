@@ -21,6 +21,7 @@ public class Application {
         Lottos lottos=new Lottos(lottoCount);
         outPutView.TotalLottoPrint(lottos);
 
+        // 당첨번호 입력
         String userInput=new InputView().userInput();
 
         // 당첨번호 입력

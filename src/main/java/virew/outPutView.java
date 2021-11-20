@@ -37,6 +37,7 @@ public class outPutView {
 
     // [] 로또 한줄씩 출력
     private static void printLottoNumbers(Lotto lotto){
+        lotto=new LottoGenerator().generate();
         System.out.println("로또생성");
 
         StringBuilder sb=new StringBuilder();
