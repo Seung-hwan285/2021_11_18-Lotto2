@@ -22,6 +22,7 @@ public class WinnerGenerator {
      *   [] null,","구분자 예외 메소드 분리
      *   [] otherType , LengthLimit 예외 메소드 분리
      *   [] spliteNumber<String> 메소드 분리
+     *   [] 문자열 list -> Integer List 메소드 분리
      *   *
 
      */
@@ -34,6 +35,15 @@ public class WinnerGenerator {
     }
 
 
+    // [] 문자열 list -> Integer List 메소드 분리
+    public static List<Integer> changeIntegerList(final List<String> splitNumber){
+        List<Integer> changeList=new ArrayList<>();
+        changeList=splitNumber.stream()
+                .map(Integer::new)
+                .collect(Collectors.toList());
+
+        return changeList;
+    }
 
     public static List<Integer> getWinngNumbers() {
         return winngNumbers;
@@ -67,9 +77,7 @@ public class WinnerGenerator {
         checkSixLimitAndOtherType(splitNumber);
 
         // 문자열 리스트 -> 정수형 리스트로 변경
-        List<Integer> winngNumbers=splitNumber.stream()
-                .map(Integer::new)
-                .collect(Collectors.toList());
+        List<Integer> winngNumbers=changeIntegerList(splitNumber);
 
         numbersLimit(winngNumbers);
         isDuplicate(winngNumbers);
