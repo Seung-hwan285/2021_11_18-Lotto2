@@ -69,9 +69,17 @@ public class WinnerTest {
     @DisplayName("숫자 1~45만 입력")
     @ParameterizedTest
     @ValueSource(strings = {"0,46,2,3,4,5"})
-    void numbersLimit(String input){
+    void numbersLimitTest(String input){
         assertThatThrownBy(()->new WinnerGenerator(input))
                 .hasMessage("1~45 만 입력해주세요");
+    }
+
+    @DisplayName("중복 예외")
+    @ParameterizedTest
+    @ValueSource(strings = {"1,2,1,2,1,2"})
+    void isDuplicateTest(String input){
+        assertThatThrownBy(()->new WinnerGenerator(input))
+                .hasMessage("중복 값이 있습니다.");
     }
 
 

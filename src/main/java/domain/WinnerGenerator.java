@@ -1,7 +1,9 @@
 package domain;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class WinnerGenerator {
@@ -14,6 +16,7 @@ public class WinnerGenerator {
      *      - 숫자 6개 예외
      *      - 숫자가 아닌 다른 타입
      *      - 1~45숫자 예외
+     *      - 중복 예외
      *
 
      */
@@ -37,7 +40,18 @@ public class WinnerGenerator {
 
 
         numbersLimit(winngNumbers);
+        isDuplicate(winngNumbers);
 
+    }
+
+
+    // - 중복 예외
+    public static void isDuplicate(List<Integer> winngNumbers){
+        Set<Integer> testSet=new HashSet<>(winngNumbers);
+
+        if(testSet.size() != winngNumbers.size()){
+            throw new IllegalArgumentException("중복 값이 있습니다.");
+        }
     }
 
     // - 1~45숫자 예외
