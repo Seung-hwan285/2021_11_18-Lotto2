@@ -3,6 +3,8 @@ import domain.*;
 import virew.InputView;
 import virew.outPutView;
 
+import java.util.List;
+
 public class Application {
 
     public static void main(String[] args) {
@@ -15,7 +17,8 @@ public class Application {
         lottoController.run();
 
         // 모든 로또 출력
-        Lottos lottos=new Lottos(lottoCount);
+        List<Lotto> randomLotto=LottoGenerator.generate(lottoCount);
+        Lottos lottos=new Lottos(randomLotto);
         outPutView.TotalLottoPrint(lottos);
 
         // 당첨번호 입력
@@ -27,6 +30,5 @@ public class Application {
         BounsBall bounsBall=new BounsBall(bounsInput);
 
 
-        System.out.println(Lotto.calculateSameNumberCount(winnerGenerator));
     }
 }

@@ -54,6 +54,7 @@ public class WinnerGenerator {
     }
 
     public static List<Integer> getWinngNumbers() {
+
         return winngNumbers;
     }
 

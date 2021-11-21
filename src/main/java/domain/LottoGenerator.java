@@ -26,28 +26,15 @@ public class LottoGenerator {
         lottoList=lotto();
     }
 
-    // [] 로또 한줄씩 출력
-    public  static List<Integer>lottoOneLine(){
 
-        List<Integer> resultLotto=new ArrayList<>();
+    // - 로또 번호 섞고 한줄씩 출력
+    public static List<Integer> shuffleLottoSixNumberLotto(){
+        List<Integer> clneAllottoList=new ArrayList<>(lottoList);
+        Collections.shuffle(clneAllottoList);
 
-        List<Integer> result=new ArrayList<>();
-
-
-        for (int i = 0; i < lottoList.size(); i++) {
-            resultLotto.add(lottoList.get(i));
-        }
-
-        shuffleLotto(resultLotto);
-        result=sixNumbers(resultLotto);
-
-        return result;
-    }
-    // - 로또 번호 섞기
-    public static void shuffleLotto(List<Integer> lottoList){
-
-        Collections.shuffle(lottoList);
-
+        List<Integer> oneLotto=new ArrayList<>();
+        oneLotto=sixNumbers(clneAllottoList);
+        return oneLotto;
     }
 
     // - 6개씩 뽑기
@@ -74,7 +61,16 @@ public class LottoGenerator {
         return lottoList;
     }
 
-    public static Lotto generate() {
-        return new Lotto(lottoOneLine());
+
+
+    // Lotto 리스트 변환
+    public static List<Lotto> generate(int count) {
+        List<Lotto> ranmdomLotto =new ArrayList<>();
+
+        for(int i=0; i< count; i++){
+            System.out.println("로또 생성");
+            ranmdomLotto.add(new Lotto(shuffleLottoSixNumberLotto()));
+        }
+        return ranmdomLotto;
     }
 }

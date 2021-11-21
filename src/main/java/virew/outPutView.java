@@ -39,7 +39,7 @@ public class outPutView {
     // [] 로또 한줄씩 출력
     private static void printLottoNumbers(Lotto lotto){
 
-        lotto=new LottoGenerator().generate();
+
 
         List<Integer> lottoList=lotto.getLottoList();
 

@@ -7,31 +7,32 @@ public enum MatchResultEunm {
 
     THREE_MATCH(3,5_000),
     FOUR_MATCH(4,50_000),
-    FIVE_MATCH(5,1_500_500),
-    FIVE_MATC_BOUNUSBALL(6,30_000_000),
+    FIVE_MATCH(5,1_500_000),
+    FIVE_BOUNSE_BALL(6,30_000_000),
     SIX_MATCH(6,2_000_000_000);
 
 
-    private int matchCount;
+    private int countMatch;
     private int price;
 
-    MatchResultEunm(int matchCount,int price){
-        this.matchCount=matchCount;
-        this.price=price;
+    MatchResultEunm(int countMatch, int price) {
+        this.countMatch = countMatch;
+        this.price = price;
     }
 
-    static MatchResultEunm of(int matchCount){
+    static MatchResultEunm of(int countMatch){
         return Arrays.stream(values())
-                .filter(v -> matchCount ==v.matchCount)
+                .filter(v-> countMatch==v.countMatch)
                 .findFirst()
-                .orElseThrow(()->new IllegalStateException("일치하는 당첨결과 없습니다."));
+                .orElseThrow(()->new IllegalArgumentException("일치하는 당첨번호가 없습니다."));
+
     }
 
-    public int getMatchCount() {
-        return matchCount;
-    }
-    public int getPrice(){
-        return getPrice();
+    public int getCountMatch() {
+        return countMatch;
     }
 
+    public int getPrice() {
+        return price;
+    }
 }

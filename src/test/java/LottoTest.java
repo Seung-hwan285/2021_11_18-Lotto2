@@ -51,10 +51,5 @@ public class LottoTest {
         Assertions.assertEquals(test,lottoList);
     }
 
-    @DisplayName("로또 6개 값")
-    @Test
-    void sixNumberTest(){
-        List<Integer> test=makeTestList2();
-        Assertions.assertEquals(test,new LottoGenerator().lottoOneLine());
-    }
+
 }
