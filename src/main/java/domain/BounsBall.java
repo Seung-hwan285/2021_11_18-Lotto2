@@ -8,6 +8,7 @@ public class BounsBall {
      *   [] 보너스 볼 입력
      *      - 숫자가 아닌 다른 타입
      *      - 1~45 숫자
+     *   [] Lotto 비교에서 보너스볼 포함?
      *
      *
      */
@@ -24,11 +25,9 @@ public class BounsBall {
         return bounuNum;
     }
 
-
+    // [] Lotto 비교에서 보너스볼 포함?
     public boolean isIncluded(List<Integer> numbers) {
         return numbers.stream()
-
-
                 .anyMatch(integer -> integer == bounuNum);
     }
 
