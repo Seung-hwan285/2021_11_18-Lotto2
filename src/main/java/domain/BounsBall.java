@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.List;
+
 public class BounsBall {
 
     /**
@@ -11,6 +13,7 @@ public class BounsBall {
      */
 
     private static int bounuNum;
+
     public BounsBall(final String input){
         bounuNum= checkOtherType(input);
         checkNumberLimit(bounuNum);
@@ -20,6 +23,15 @@ public class BounsBall {
     public static int getBounuNum() {
         return bounuNum;
     }
+
+
+    public boolean isIncluded(List<Integer> numbers) {
+        return numbers.stream()
+
+
+                .anyMatch(integer -> integer == bounuNum);
+    }
+
 
     // - 숫자가 아닌 다른 타입
     public static int checkOtherType(final String input){
@@ -37,4 +49,6 @@ public class BounsBall {
             throw new IllegalArgumentException("1~45숫자만 입력해주세요");
         }
     }
+
+
 }

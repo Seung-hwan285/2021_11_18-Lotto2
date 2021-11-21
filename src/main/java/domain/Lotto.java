@@ -20,7 +20,8 @@ public class Lotto {
     }
 
 
-    public List<Integer> getLottoList() {
+    public List<Integer>
+    getLottoList() {
         return lottoList;
     }
 
