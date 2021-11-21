@@ -23,8 +23,8 @@ public enum MatchResultEunm {
     static MatchResultEunm of(int countMatch){
         return Arrays.stream(values())
                 .filter(v-> countMatch==v.countMatch)
-                .findFirst()
-                .orElseThrow(()->new IllegalArgumentException("일치하는 당첨번호가 없습니다."));
+                .findAny()
+                .orElseThrow(()->new IllegalStateException("당첨번호와 같은 값이 없습니다."));
 
     }
 

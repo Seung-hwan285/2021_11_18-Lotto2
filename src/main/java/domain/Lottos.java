@@ -27,8 +27,12 @@ public class Lottos {
 
     // [] 로또 여러줄 과 당첨번호 비교
     public Map<MatchResultEunm, Integer> createMatchResults(WinnerGenerator winningNumbers, BounsBall bonusNumber) {
+
         Map<MatchResultEunm, Integer> matchResults = setUpMatchResults();
+
+
         for (Lotto lotto : lottosList) {
+
             MatchResultEunm lottoMatchResult = lotto.findMatchResultNumber(winningNumbers, bonusNumber);
             int matchCount = matchResults.get(lottoMatchResult);
             matchResults.put(lottoMatchResult, ++matchCount);
@@ -40,9 +44,13 @@ public class Lottos {
     // [] 로또 결과값 세팅
     private Map<MatchResultEunm, Integer> setUpMatchResults() {
         Map<MatchResultEunm, Integer> matchResults = new HashMap<>();
-        MatchResultEunm[] results = MatchResultEunm.values();
-        for (MatchResultEunm result : results) {
-            matchResults.put(result, 0);
+
+        MatchResultEunm matchResultEunm[]=MatchResultEunm.values();
+        for(MatchResultEunm m: matchResultEunm){
+
+            // key : THREE_MATCH , value : 0
+            // key : FOUNT_MATCH , value : 0
+            matchResults.put(m,0);
         }
         return matchResults;
     }

@@ -20,6 +20,8 @@ public class Lotto {
     private static final int LOTTO_NUMBERS_COUNT =6;
     private static final int WINNING_NUMBERS_COUNT=6;
 
+    private static final int TOTAL_COUNT= LOTTO_NUMBERS_COUNT+WINNING_NUMBERS_COUNT;
+
 
     private static List<Integer> lottoList=new ArrayList<>();
 
@@ -53,8 +55,8 @@ public class Lotto {
 
         // 중첩제거한 한줄 로또 + 당첨번호
         oneLineLotto.addAll(winnerGenerator.getWinngNumbers());
-        int lottoSize=oneLineLotto.size();
-        return LOTTO_NUMBERS_COUNT+WINNING_NUMBERS_COUNT-lottoSize;
+
+        return TOTAL_COUNT-oneLineLotto.size();
     }
 
     public static List<Integer> getResult() {
