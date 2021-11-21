@@ -27,5 +27,6 @@ public class Application {
         BounsBall bounsBall=new BounsBall(bounsInput);
 
 
+        System.out.println(Lotto.calculateSameNumberCount(winnerGenerator));
     }
 }
