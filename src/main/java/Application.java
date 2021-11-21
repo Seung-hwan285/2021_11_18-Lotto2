@@ -19,8 +19,12 @@ public class Application {
         outPutView.TotalLottoPrint(lottos);
 
         // 당첨번호 입력
-        String userInput=new InputView().userInput();
+        String userInput=InputView.userInput();
 
+        WinnerGenerator winnerGenerator=new WinnerGenerator(userInput);
+
+        String bounsInput =InputView.bonusBall();
+        BounsBall bounsBall=new BounsBall(bounsInput);
 
 
     }
