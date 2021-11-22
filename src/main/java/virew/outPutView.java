@@ -43,7 +43,6 @@ public class outPutView {
 
         List<Integer> lottoList=lotto.getLottoList();
 
-
         String result =lottoList.stream()
                 .map(String::valueOf)
                 .collect(Collectors.joining(", "));

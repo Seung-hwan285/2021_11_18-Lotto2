@@ -94,6 +94,8 @@ public class WinnerGenerator {
         return winngNumbers;
     }
 
+
+
     // - 중복 예외
     public static void isDuplicate(List<Integer> winngNumbers){
         Set<Integer> testSet=new HashSet<>(winngNumbers);

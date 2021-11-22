@@ -29,17 +29,23 @@ public class LottoGenerator {
 
     // - 로또 번호 섞고 한줄씩 출력
     public static List<Integer> shuffleLottoSixNumberLotto(){
+
         List<Integer> clneAllottoList=new ArrayList<>(lottoList);
         Collections.shuffle(clneAllottoList);
 
+
         List<Integer> oneLotto=new ArrayList<>();
         oneLotto=sixNumbers(clneAllottoList);
+
+
         return oneLotto;
     }
 
     // - 6개씩 뽑기
     public static List<Integer> sixNumbers(List<Integer> lottoList){
         List<Integer> six=new ArrayList<>();
+
+
         for(int i=0; i<6; i++){
             six.add(lottoList.get(i));
         }
@@ -68,9 +74,10 @@ public class LottoGenerator {
         List<Lotto> ranmdomLotto =new ArrayList<>();
 
         for(int i=0; i< count; i++){
-            System.out.println("로또 생성");
+
             ranmdomLotto.add(new Lotto(shuffleLottoSixNumberLotto()));
         }
+
         return ranmdomLotto;
     }
 }

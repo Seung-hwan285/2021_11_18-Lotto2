@@ -23,11 +23,11 @@ public class Lotto {
     private static final int TOTAL_COUNT= LOTTO_NUMBERS_COUNT+WINNING_NUMBERS_COUNT;
 
 
-    private static List<Integer> lottoList=new ArrayList<>();
+    private final List<Integer> lottoList;
 
 
     public Lotto(List<Integer> lottoOneLine){
-        this.lottoList=lottoOneLine;
+        lottoList=lottoOneLine;
     }
 
 
@@ -50,8 +50,8 @@ public class Lotto {
 
 
     // [] 로또 한줄  당첨번호 몇개가 같은지 비교
-    private static int sameCountLotto(WinnerGenerator winnerGenerator){
-        Set<Integer> oneLineLotto=new HashSet<>(lottoList);
+    private int sameCountLotto(WinnerGenerator winnerGenerator){
+        Set<Integer> oneLineLotto=new HashSet<>(this.lottoList);
 
         // 중첩제거한 한줄 로또 + 당첨번호
         oneLineLotto.addAll(winnerGenerator.getWinngNumbers());
@@ -59,7 +59,7 @@ public class Lotto {
         return TOTAL_COUNT-oneLineLotto.size();
     }
 
-    public static List<Integer> getResult() {
-        return lottoList;
+    public List<Integer> getResult() {
+        return  lottoList;
     }
 }

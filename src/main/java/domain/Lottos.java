@@ -16,13 +16,16 @@ public class Lottos {
      * [] 로또 결과값 세팅
      */
 
-    private List<Lotto> lottosList=new ArrayList<>();
+    private static List<Lotto> lottosList=new ArrayList<>();
 
 
-    public Lottos(final List<Lotto> lottos){
+    public Lottos(List<Lotto> lottos){
+        lottosList=lottos;
+    }
 
-        this.lottosList=lottos;
+    public static List<Lotto> getLottosList() {
 
+        return lottosList;
     }
 
     // [] 로또 여러줄 과 당첨번호 비교
@@ -54,9 +57,5 @@ public class Lottos {
         }
         return matchResults;
     }
-    public List<Lotto> getLottosList() {
 
-
-        return lottosList;
-    }
 }
