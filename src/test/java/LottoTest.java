@@ -49,6 +49,8 @@ public class LottoTest {
         List<Integer> lottoList=new LottoGenerator().lotto();
         List<Integer> test=makeTestList();
         Assertions.assertEquals(test,lottoList);
+
+
     }
 
 

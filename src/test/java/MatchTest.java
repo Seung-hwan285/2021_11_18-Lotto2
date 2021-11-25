@@ -30,17 +30,27 @@ public class MatchTest {
     private List<Lotto> lottos;
     private WinnerGenerator winnerGenerator;
     private BounsBall bounsBall;
+    private Map<MatchResultEunm,Integer> ex;
     @BeforeEach
     void 초기(){
 
         lottos=new ArrayList<>();
-        lottos.add(new Lotto(Arrays.asList(1, 2, 3, 43, 44, 45)));
+
+        lottos.add(new Lotto(Arrays.asList(1,2,3,8,9,10)));
+        winnerGenerator=new WinnerGenerator("1,2,3,20,30,40");
+        bounsBall=new BounsBall("43");
+
+        ex=new HashMap<>();
 
 
+        // 가격 1로 초기화 0으로하면 곱할수없음
+        ex.put(MatchResultEunm.THREE_MATCH,1);
+        ex.put(MatchResultEunm.FOUR_MATCH,1);
+        ex.put(MatchResultEunm.FIVE_MATCH,1);
+        ex.put(MatchResultEunm.FIVE_BOUNSE_BALL,1);
+        ex.put(MatchResultEunm.SIX_MATCH,1);
 
-        winnerGenerator = new WinnerGenerator("1,2,3,4,5,7");
 
-        bounsBall=new BounsBall("15");
 
     }
 
@@ -55,20 +65,32 @@ public class MatchTest {
     @DisplayName("생성된 로또들 당첨번호 비교했을때 결과를 반환하는 테스트")
     @Test
     void createMatchResultTest(){
-        Lottos lottos=new Lottos(this.lottos);
-        Map<MatchResultEunm,Integer> integerMap=lottos.createMatchResults(winnerGenerator,bounsBall);
+        Lottos lottos1=new Lottos(this.lottos);
 
-        Map<MatchResultEunm,Integer> expected=new HashMap<>();
-
-
-        expected.put(MatchResultEunm.THREE_MATCH,1);
-        expected.put(MatchResultEunm.FOUR_MATCH, 0);
-        expected.put(MatchResultEunm.FIVE_MATCH, 0);
-        expected.put(MatchResultEunm.FIVE_BOUNSE_BALL, 0);
-        expected.put(MatchResultEunm.SIX_MATCH, 0);
+        Map<MatchResultEunm,Integer> matchResultEunm=lottos1.createMatchResults(winnerGenerator,bounsBall);
 
 
-        assertThat(expected).isEqualTo(integerMap);
+
+        ex.put(MatchResultEunm.THREE_MATCH,1);
+        ex.put(MatchResultEunm.FOUR_MATCH,0);
+        ex.put(MatchResultEunm.FIVE_MATCH,0);
+        ex.put(MatchResultEunm.FIVE_BOUNSE_BALL,0);
+        ex.put(MatchResultEunm.SIX_MATCH,0);
+
+
+        assertThat(matchResultEunm).isEqualTo(ex);
+    }
+
+    @DisplayName("로또 올바른 수익률 반환하는지")
+    @Test
+    void calculateEarning(){
+            LottoResult lottoResult=new LottoResult(ex);
+
+
+            int earn= lottoResult.calculateEngin(new PurchasePrice("5000"));
+
+            assertThat(earn).isEqualTo(40_631_100);
+
     }
 
 }

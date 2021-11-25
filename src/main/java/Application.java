@@ -29,8 +29,10 @@ public class Application {
         //
         List<Lotto> randomLotto=LottoGenerator.generate(lottoCount);
 
-        randomLotto.stream()
-                .forEach(v-> System.out.println(v.getLottoList()));
+        Lottos lottos=new Lottos(randomLotto);
+
+        outPutView.TotalLottoPrint(lottos);
+
 
 
 //        Lottos lottos=new Lottos(randomLotajsto);
