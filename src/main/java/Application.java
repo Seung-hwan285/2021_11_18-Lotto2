@@ -19,12 +19,7 @@ public class Application {
         LottoController lottoController=new LottoController();
 
 
-        int lottoCount= PurchasePrice.myMoneyCount();
-
         lottoController.run();
-
-
-
 
 
 

@@ -32,4 +32,7 @@ public class LottoResult {
         return money;
     }
 
+    public Map<MatchResultEunm, Integer> getLottoList() {
+        return lottoList;
+    }
 }
