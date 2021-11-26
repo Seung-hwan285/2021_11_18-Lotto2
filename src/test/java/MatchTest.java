@@ -1,30 +1,15 @@
 import domain.*;
-import org.assertj.core.api.AssertionsForClassTypes;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.EmptySource;
-import org.junit.jupiter.params.provider.NullAndEmptySource;
-import org.junit.jupiter.params.provider.NullSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import java.awt.*;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
-import java.lang.reflect.Method;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.*;
-import java.util.List;
-import java.util.regex.MatchResult;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.in;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.assertj.core.api.Assertions.assertThat;
-
-
 public class MatchTest {
 
     private List<Lotto> lottos;
@@ -49,6 +34,7 @@ public class MatchTest {
         ex.put(MatchResultEunm.FIVE_MATCH,1);
         ex.put(MatchResultEunm.FIVE_BOUNSE_BALL,1);
         ex.put(MatchResultEunm.SIX_MATCH,1);
+
 
 
 
@@ -84,13 +70,12 @@ public class MatchTest {
     @DisplayName("로또 올바른 수익률 반환하는지")
     @Test
     void calculateEarning(){
-            LottoResult lottoResult=new LottoResult(ex);
 
-
-            int earn= lottoResult.calculateEngin(new PurchasePrice("5000"));
-
-            assertThat(earn).isEqualTo(40_631_100);
+        LottoResult lottoResult=new LottoResult(ex);
+        int earn= lottoResult.calculateEngin(new PurchasePrice("5000"));
+        assertThat(earn).isEqualTo(40_631_100);
 
     }
+
 
 }
