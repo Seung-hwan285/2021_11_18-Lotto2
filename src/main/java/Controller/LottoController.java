@@ -19,6 +19,7 @@ public class LottoController {
 
         int lottoCount= PurchasePrice.myMoneyCount();
 
+
         // 모든 로또 출력
         List<Lotto> randomLotto= LottoGenerator.generate(lottoCount);
         Lottos lottos=new Lottos(randomLotto);

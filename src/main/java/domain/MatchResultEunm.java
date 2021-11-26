@@ -24,7 +24,7 @@ public enum MatchResultEunm {
 
     static MatchResultEunm of(int countMatch){
         return Arrays.stream(values())
-                .filter(v->v.countMatch ==v.countMatch)
+                .filter(v->countMatch ==v.countMatch)
                 .findAny()
                 .orElseThrow(()->new IllegalArgumentException("일치하는 당첨번호가 없습니다"));
     }

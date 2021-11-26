@@ -78,7 +78,7 @@ public class outPutView {
 
     //수익률
     public static void printEarn(int money){
-        System.out.println(String.format("축하합니다!",money));
+        System.out.println(String.format("%d 원입니다 .축하합니다!",money));
     }
 
 }

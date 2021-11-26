@@ -21,8 +21,10 @@ public class MatchTest {
 
         lottos=new ArrayList<>();
 
-        lottos.add(new Lotto(Arrays.asList(1,2,3,8,9,10)));
-        winnerGenerator=new WinnerGenerator("1,2,3,20,30,40");
+        lottos.add(new Lotto(Arrays.asList(1,2,3,8,9,20)));
+//        lottos.add(new Lotto(Arrays.asList(1,2,3,4,5,6)));
+
+        winnerGenerator=new WinnerGenerator("1,2,3,8,9,10");
         bounsBall=new BounsBall("43");
 
         ex=new HashMap<>();
@@ -43,7 +45,8 @@ public class MatchTest {
     @DisplayName("로또 한줄 당첨번호와 비교해서 결과를 반환하는 테스트")
     @Test
     void findMatchResultTest(){
-        assertThat(lottos.get(0).findMatchResultNumber(winnerGenerator,bounsBall)).isEqualTo(MatchResultEunm.THREE_MATCH);
+        //assertThat(lottos.get(0).findMatchResultNumber(winnerGenerator,bounsBall)).isEqualTo(MatchResultEunm.THREE_MATCH);
+        assertThat(lottos.get(0).findMatchResultNumber(winnerGenerator,bounsBall)).isEqualTo(MatchResultEunm.FIVE_MATCH);
     }
 
 
